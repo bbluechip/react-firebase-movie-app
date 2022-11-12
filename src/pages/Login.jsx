@@ -2,17 +2,22 @@ import React from "react";
 import { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { Link } from "react-router-dom";
-import { signIn } from "../auth/firebase";
+import { signIn, signUpWithGoogle } from "../auth/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(email, password, navigate);
     console.log(email, password);
+  };
+
+  const handleGoogleProvider = () => {
+    signUpWithGoogle(navigate);
   };
 
   return (
@@ -81,6 +86,7 @@ const Login = () => {
             <button
               className="flex justify-between border-none outline-none bg-[#ff4b45] custom-input w-[300px] mt-[15px] rounded-[4px] font-[600] cursor-pointer"
               type="button"
+              onClick={handleGoogleProvider}
             >
               Continue with Google
               <GoogleIcon color="currentColor" />

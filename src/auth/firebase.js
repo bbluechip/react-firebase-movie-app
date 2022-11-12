@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -69,5 +70,17 @@ export const logOut = (navigate) => {
 };
 
 // Google Account Register Auths
+// netlify'a deploy ettikten sonra add domain ile domaini eklememiz gerekiyor auth'a
 
-const provider = new GoogleAuthProvider();
+export const signUpWithGoogle = (navigate) => {
+  const provider = new GoogleAuthProvider();
+  // firebase method for sign in with pop up window
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result);
+      navigate("/");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};

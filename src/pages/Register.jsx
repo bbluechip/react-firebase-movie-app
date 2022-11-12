@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
-import { createUser } from "../auth/firebase";
+import { createUser, signUpWithGoogle } from "../auth/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -16,6 +16,10 @@ const Register = () => {
     const displayName = `${firstName} ${lastName}}`;
     createUser(email, password, navigate, displayName);
     console.log(firstName, lastName);
+  };
+
+  const handleGoogleProvider = () => {
+    signUpWithGoogle(navigate);
   };
 
   return (
@@ -94,6 +98,7 @@ const Register = () => {
             <button
               className="flex justify-between border-none outline-none bg-[#ff4b45] custom-input w-[300px] mt-[15px] rounded-[4px] font-[600] cursor-pointer"
               type="button"
+              onClick={handleGoogleProvider}
             >
               Continue with Google
               <GoogleIcon color="currentColor" />

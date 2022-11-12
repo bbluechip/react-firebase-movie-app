@@ -2,16 +2,18 @@ import React from "react";
 import { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { createUser } from "../auth/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser(email, password);
+    createUser(email, password, navigate);
     console.log(firstName, lastName);
   };
 

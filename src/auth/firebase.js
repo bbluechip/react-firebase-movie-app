@@ -43,13 +43,15 @@ export const signIn = async (email, password, navigate) => {
     navigate("/");
     console.log(userLogin);
   } catch (error) {
-    alert(error);
+    alert(error.message);
   }
 };
 
-export const userObserver = () => {
+export const userObserver = (setCurrentUser) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      const { email, displayName, photoURL } = user;
+      setCurrentUser({ email, displayName, photoURL });
       console.log(user);
     } else {
       console.log("user signed out");
@@ -57,6 +59,6 @@ export const userObserver = () => {
   });
 };
 
-export const logOut = () => {
+export const logOut = (navigate) => {
   signOut(auth);
 };

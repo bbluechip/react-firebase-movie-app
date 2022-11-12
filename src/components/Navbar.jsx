@@ -7,9 +7,6 @@ import { AuthContext } from "../context/AuthContextProvider";
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
 
-  // const currentUser = { displayName: "orhannberk bbluechip" };
-
-  // const currentUser = false;
   return (
     <>
       <nav className="w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-white shadow-lg navbar navbar-expand-lg fixed-top">

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useNavigate } from "react";
 import { Link } from "react-router-dom";
 import avatar from "../assets/icons/avatar.png";
+import { logOut } from "../auth/firebase";
 
 const Navbar = () => {
   // const currentUser = { displayName: "orhannberk bbluechip" };
+  const navigate = useNavigate();
   const currentUser = false;
   return (
     <>
@@ -58,6 +60,10 @@ const Navbar = () => {
                   <span
                     className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                     role="button"
+                    onClick={() => {
+                      logOut();
+                      navigate("/login");
+                    }}
                   >
                     Logout
                   </span>

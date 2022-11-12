@@ -1,7 +1,11 @@
-import React from "react";
+import { userObserver } from "./auth/firebase";
 import AppRouter from "./router/AppRouter";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    userObserver();
+  }, []);
   return (
     <div>
       <AppRouter />

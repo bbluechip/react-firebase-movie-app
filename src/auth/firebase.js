@@ -2,7 +2,9 @@ import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 //* Your web app's Firebase configuration
@@ -43,4 +45,18 @@ export const signIn = async (email, password, navigate) => {
   } catch (error) {
     alert(error);
   }
+};
+
+export const userObserver = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log(user);
+    } else {
+      console.log("user signed out");
+    }
+  });
+};
+
+export const logOut = () => {
+  signOut(auth);
 };

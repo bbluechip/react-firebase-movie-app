@@ -3,7 +3,7 @@ import AuthContextProvider from "./context/AuthContextProvider";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-[#23242a]">
       <AuthContextProvider children={<AppRouter />} />
     </div>
   );

@@ -18,7 +18,6 @@ const Navbar = () => {
             {currentUser && (
               <h5 className="mr-2 capitalize">{currentUser?.displayName}</h5>
             )}
-
             <div className="dropdown relative">
               <span
                 className="dropdown-toggle flex items-center hidden-arrow"

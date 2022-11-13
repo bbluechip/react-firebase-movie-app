@@ -26,7 +26,7 @@ const MovieDetail = () => {
       .get(movieDetailBaseUrl)
       .then((res) => setMovieDetails(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [movieDetailBaseUrl]);
 
   return (
     <div className="container px-10 mx-auto py-5">

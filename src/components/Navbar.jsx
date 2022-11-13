@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div className="h-[52px]"></div>
+      {/* <div className="h-[52px]"></div> */}
     </>
   );
 };
